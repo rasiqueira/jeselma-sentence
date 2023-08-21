@@ -39,7 +39,7 @@ def get_vectorstore(text_chunks):
 
 
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI( model="gpt-4-0314", openai_api_key="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")
+    llm = ChatOpenAI(model="gpt-4-0314")
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
     custom_template = """Você é um redator especializado em posts de redes sociais a maioria ds posts são sobre temas médicos você vai receber documentos de treinamento com informações na maioria das vezes acadêmicas. Siga as instruções para gerar posts que engagem a audiência porém se cheque sempre as informações de acordo com seus documentos de treinamento.
                     Chat History:
