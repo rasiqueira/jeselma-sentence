@@ -41,7 +41,7 @@ def get_vectorstore(text_chunks):
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI(model="gpt-4-0314", openai_api_key = st.secrets["openai_secret_key"])
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.3, "max_length":512})
-    custom_template = """Você é um juiz brasileiro experiente e vai produzir com base no despacho que estará nos seus documentos de treinamento você vai produzir um relatório de sentença.
+    custom_template = """Você é um excelente advogado e vai utilizar seus conhecimentos de direito brasileiro para responder as perguntas a partir do material de treimaento
                     Chat History:
                     {chat_history}
                     Follow Up Input: {question}
@@ -105,7 +105,7 @@ def check_password():
 
 if check_password():
     load_dotenv()
-    st.set_page_config(page_title="Gere seu relatório de sentença",
+    st.set_page_config(page_title="justice GPT",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
 
