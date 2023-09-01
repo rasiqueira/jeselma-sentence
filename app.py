@@ -105,7 +105,7 @@ def check_password():
 
 if check_password():
     load_dotenv()
-    st.set_page_config(page_title="Crie com seus PDFs",
+    st.set_page_config(page_title="Gere seu relatório de sentença",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
 
@@ -123,7 +123,7 @@ if check_password():
             st.error('Não se esqueça de clicar em Processar', icon="🚨")
 
     with st.sidebar:
-        st.subheader("Seus documentos")
+        st.subheader("Suas decisões")
         pdf_docs = st.file_uploader(
             "Faça o upoload dos seus documentos e clique em 'Processar' e aguardar a finalização do processo de treinamento.", accept_multiple_files=True)
         if st.button("Processar"):
