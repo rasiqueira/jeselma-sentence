@@ -40,8 +40,8 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI(model="gpt-4-0314", openai_api_key = st.secrets["openai_secret_key"])
-    # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
-    custom_template = """Você é um redator especializado em posts de redes sociais a maioria ds posts são sobre temas médicos você vai receber documentos de treinamento com informações na maioria das vezes acadêmicas. Siga as instruções para gerar posts que engagem a audiência porém se cheque sempre as informações de acordo com seus documentos de treinamento.
+    # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.3, "max_length":512})
+    custom_template = """Você é um juiz brasileiro experiente e vai produzir com base no despacho que estará nos seus documentos de treinamento você vai produzir um relatório de sentença.
                     Chat History:
                     {chat_history}
                     Follow Up Input: {question}
@@ -115,7 +115,7 @@ if check_password():
         st.session_state.chat_history = None
 
     st.header("Crie com seus PDFs :books:")
-    user_question = st.text_input("""Vanessa, digite o tipo de post, a rede social e o público que deseja atingir:""")
+    user_question = st.text_input("""Doutor Iure, digite o que você quer no relatório de sentença:""")
     if user_question:
         try:
             handle_userinput(user_question)
