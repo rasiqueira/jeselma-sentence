@@ -115,7 +115,7 @@ if check_password():
         st.session_state.chat_history = None
 
     st.header("justice GPT :books:")
-    user_question = st.text_input("""Doutor Iure, digite o que você quer no relatório de sentença:""")
+    user_question = st.text_input("""Doutora Mari, digite o que você quer no relatório de sentença:""")
     if user_question:
         try:
             handle_userinput(user_question)
